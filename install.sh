@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Git user credentials are not checked in
+if [ ! -f ~/.gitconfig_untracked ]; then
 echo "Enter full name for Git global config:"
 read git_user_name
 echo "Enter email address for Git global config:"
@@ -13,6 +14,10 @@ printf \
 #[commit]\n\
 #\tgpgSign = true\n" \
 "$git_user_name" "$git_user_email" >> ~/.gitconfig_untracked
+else
+  printf "~/.gitconfig_untracked already exists:\n\
+  Ensure at least full name and  email are set.\n"
+fi
 
 # Ensure this dotfile repo is installed in a known location
 echo "Creating symlink for $PWD directory"
