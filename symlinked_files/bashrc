@@ -14,16 +14,11 @@ alias tree="tree -C"
 
 # Bash autocomplete support
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-source ~/.git-completion.bash
 if type brew 2&>/dev/null; then
   source "$(brew --prefix)/etc/bash_completion"
 else
   echo "run: brew install bash-completion"
 fi
-
-# Prompt
-source ~/.git-prompt.sh
-export PS1='\h:\W \u$(__git_ps1 " (%s)")$'
 
 # Shortcuts
 alias path='echo $PATH | tr ":" "\n"'
@@ -38,7 +33,12 @@ if [ $(command -v /usr/local/Cellar/modules/3.2.10/Modules/bin/modulecmd) ]; the
   source /usr/local/Cellar/modules/3.2.10/Modules/init/bash
 fi
 
-# Git shortcuts
+# Git
+if [ -d ~/.dotfiles/git_scm/contrib/completion/ ]; then
+  source ~/.dotfiles/git_scm/contrib/completion/git-completion.bash
+  source ~/.dotfiles/git_scm/contrib/completion/git-prompt.sh
+  export PS1='\h:\W \u$(__git_ps1 " (%s)")$'
+fi
 if [ -f ~/.git_shortcuts ]; then
   source ~/.git_shortcuts
 fi
