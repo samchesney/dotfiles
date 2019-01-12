@@ -59,7 +59,7 @@ for file in ${file_list[@]}; do
 
   # Create symlink to the managed version
   echo "Creating symlink for .$file"
-  ln -s `pwd`/$file ~/.$file
+  ln -s $PWD/$file ~/.$file
 
 done
 
