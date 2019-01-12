@@ -65,5 +65,5 @@ if [ $backup_count -eq 0 ] && [ $backup_dir_created == true ]; then
 fi
 
 # Ensure git submodules have been cloned
-git submodules init
-git submodules update
+git submodule init
+git submodule update
