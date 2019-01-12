@@ -66,4 +66,4 @@ fi
 
 # Ensure git submodules have been cloned
 git submodule init
-git submodule update
+git submodule update --depth 1
