@@ -14,6 +14,15 @@ printf \
 #\tgpgSign = true\n" \
 "$git_user_name" "$git_user_email" >> ~/.gitconfig_untracked
 
+# Ensure this dotfile repo is installed in a known location
+echo "Creating symlink for $PWD directory"
+if [ -L ~/.dotfiles ]; then
+  # Delete any existing symlink to avoid the risk of following it when
+  # updating to the current location.
+  rm ~/.dotfiles
+fi
+ln -si $PWD/ ~/.dotfiles
+
 # Build list of files managed by this dotfiles repo
 cd ./symlinked_files/
 file_list=(*)
