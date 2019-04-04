@@ -35,7 +35,6 @@ fi
 
 # Git
 if [ -d ~/.dotfiles/git_scm/contrib/completion/ ]; then
-  source ~/.dotfiles/git_scm/contrib/completion/git-completion.bash
   source ~/.dotfiles/git_scm/contrib/completion/git-prompt.sh
   export GIT_PS1_SHOWUPSTREAM="auto"
   # export GIT_PS1_SHOWUNTRACKEDFILES=1
