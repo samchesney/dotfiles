@@ -1,4 +1,0 @@
-[submodule "git_scm"]
-	path = git_scm
-	url = https://github.com/git/git.git
-	shallow = true
