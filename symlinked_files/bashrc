@@ -34,8 +34,9 @@ if [ $(command -v /usr/local/Cellar/modules/3.2.10/Modules/bin/modulecmd) ]; the
 fi
 
 # Git
-if [ -d ~/.dotfiles/git_scm/contrib/completion/ ]; then
-  source ~/.dotfiles/git_scm/contrib/completion/git-prompt.sh
+if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
+  source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
   export GIT_PS1_SHOWUPSTREAM="auto"
   # export GIT_PS1_SHOWUNTRACKEDFILES=1
   # export GIT_PS1_SHOWSTASHSTATE=1
