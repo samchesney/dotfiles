@@ -16,8 +16,6 @@ alias tree="tree -C"
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 if type brew 2&>/dev/null; then
   source "$(brew --prefix)/etc/bash_completion"
-else
-  echo "run: brew install bash-completion"
 fi
 
 # Shortcuts
