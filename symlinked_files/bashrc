@@ -40,7 +40,11 @@ if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   # export GIT_PS1_SHOWSTASHSTATE=1
   export GIT_PS1_SHOWDIRTYSTATE=1
   export GIT_PS1_SHOWCOLORHINTS=1
-  export PROMPT_COMMAND='__git_ps1 "\h:\W \u" "\$"&&update_terminal_cwd'
+  if [ "$(type -t update_terminal_cwd)" = 'function' ]; then
+    export PROMPT_COMMAND='__git_ps1 "\h:\W \u" "\$"&&update_terminal_cwd'
+  else
+    export PROMPT_COMMAND='__git_ps1 "\h:\W \u" "\$"'
+  fi
 fi
 if [ -f ~/.git_shortcuts ]; then
   source ~/.git_shortcuts
