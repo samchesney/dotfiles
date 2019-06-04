@@ -60,3 +60,8 @@ if [ -d ~/.phabricator ]; then
   export PATH=~/.phabricator/arcanist/bin:$PATH
   source ~/.phabricator/arcanist/resources/shell/bash-completion
 fi
+
+# Python
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
