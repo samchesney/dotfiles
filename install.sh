@@ -68,3 +68,7 @@ if [ $backup_count -eq 0 ] && [ $backup_dir_created == true ]; then
   echo -e "\nRemoving unused backup directory $backup_dir"
   rm -r $backup_dir
 fi
+
+# Ensure git submodules have been cloned
+git submodule init
+git submodule update --depth 1
