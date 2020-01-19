@@ -1,0 +1,11 @@
+# Autocomplete support
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+autoload -U compinit
+compinit
+
+if [ -f ~/.interactive ]; then
+  source ~/.interactive
+fi
