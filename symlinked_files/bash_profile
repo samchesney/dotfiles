@@ -1,3 +1,7 @@
-if [ -f ~/.bashrc ]; then
+if [ -f ~/.profile ]; then
+  source ~/.profile
+fi
+
+if [ "$PS1" ] && [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi

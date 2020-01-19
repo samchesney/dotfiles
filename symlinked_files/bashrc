@@ -1,37 +1,10 @@
-# Authentication
-ssh-add -A > /dev/null 2>&1
-export GPG_TTY=$(tty)
-
-# Colours
-export GREP_OPTIONS='--color=auto'
-if [ $(command -v src-hilite-lesspipe.sh) ]; then
-  # Requires source-highlight install
-  export LESSOPEN="| src-hilite-lesspipe.sh %s"
-  export LESS=' -R '
-fi
-alias ls='ls -G'
-alias tree="tree -C"
-
-# Bash autocomplete support
+# Autocomplete support
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 if type brew 2&>/dev/null; then
   source "$(brew --prefix)/etc/bash_completion"
 fi
 
-# Shortcuts
-alias path='echo $PATH | tr ":" "\n"'
-alias ll='ls -lh'
-alias l='tree -L 1'
-alias slime='"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"'
-alias dirs='dirs -v'
-
-# Environment Modules
-if [ $(command -v /usr/local/Cellar/modules/3.2.10/Modules/bin/modulecmd) ]; then
-  # Assuming installation via Brew (and so not on the PATH), if installed at all
-  source /usr/local/Cellar/modules/3.2.10/Modules/init/bash
-fi
-
-# Git
+# Prompt configuration
 if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"
   source "/usr/local/opt/bash-git-prompt/share/gitprompt.sh"
@@ -46,23 +19,7 @@ if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     export PROMPT_COMMAND='__git_ps1 "\h:\W \u" "\$"'
   fi
 fi
-if [ -f ~/.git_shortcuts ]; then
-  source ~/.git_shortcuts
-fi
 
-# XMOS toolchain
-if [ -f ~/.xmos_tools ]; then
-  source ~/.xmos_tools
+if [ -f ~/.interactive ]; then
+  source ~/.interactive
 fi
-
-# Phabricator
-if [ -d ~/.phabricator ]; then
-  export PATH=~/.phabricator/arcanist/bin:$PATH
-  source ~/.phabricator/arcanist/resources/shell/bash-completion
-fi
-
-# Python
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-export PIPENV_VENV_IN_PROJECT=1

@@ -1,0 +1,7 @@
+if [ -f ~/.env ]; then
+  source ~/.env
+fi
+
+if [ -f ~/.login ]; then
+  source ~/.login
+fi

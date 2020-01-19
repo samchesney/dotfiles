@@ -1,0 +1,17 @@
+# Environment Modules
+if [ $(command -v /usr/local/Cellar/modules/3.2.10/Modules/bin/modulecmd) ]; then
+  # Assuming installation via Brew (and so not on the PATH), if installed at all
+  source /usr/local/Cellar/modules/3.2.10/Modules/init/bash
+fi
+
+# Phabricator
+if [ -d ~/.phabricator ]; then
+  export PATH=~/.phabricator/arcanist/bin:$PATH
+  source ~/.phabricator/arcanist/resources/shell/bash-completion
+fi
+
+# Python
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+export PIPENV_VENV_IN_PROJECT=1

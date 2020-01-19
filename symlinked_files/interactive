@@ -1,0 +1,28 @@
+# Authentication
+export GPG_TTY=$(tty)
+
+# Colours
+export GREP_OPTIONS='--color=auto'
+if [ $(command -v src-hilite-lesspipe.sh) ]; then
+  # Requires source-highlight install
+  export LESSOPEN="| src-hilite-lesspipe.sh %s"
+  export LESS=' -R '
+fi
+alias ls='ls -G'
+alias tree="tree -C"
+
+# Shortcuts
+alias path='echo $PATH | tr ":" "\n"'
+alias ll='ls -lh'
+alias l='tree -L 1'
+alias slime='"/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"'
+alias dirs='dirs -v'
+
+if [ -f ~/.git_shortcuts ]; then
+  source ~/.git_shortcuts
+fi
+
+# XMOS toolchain
+if [ -f ~/.xmos_tools ]; then
+  source ~/.xmos_tools
+fi
