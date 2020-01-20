@@ -28,3 +28,6 @@ au BufWritePre *.bin endif
 au BufWritePost *.bin if &bin | %!xxd
 au BufWritePost *.bin set nomod | endif
 augroup END
+
+" Simple copy keyboard shortcut
+map <F2> :.w !pbcopy<CR><CR>
