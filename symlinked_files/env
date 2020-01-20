@@ -7,7 +7,6 @@ fi
 # Phabricator
 if [ -d ~/.phabricator ]; then
   export PATH=~/.phabricator/arcanist/bin:$PATH
-  source ~/.phabricator/arcanist/resources/shell/bash-completion
 fi
 
 # Python
