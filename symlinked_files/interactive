@@ -21,8 +21,3 @@ alias dirs='dirs -v'
 if [ -f ~/.git_shortcuts ]; then
   source ~/.git_shortcuts
 fi
-
-# XMOS toolchain
-if [ -f ~/.xmos_tools ]; then
-  source ~/.xmos_tools
-fi
