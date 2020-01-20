@@ -31,3 +31,10 @@ augroup END
 
 " Simple copy keyboard shortcut
 map <F2> :.w !pbcopy<CR><CR>
+
+" Highlight searches (use <C-L> to temporarily turn off highlighting)
+set hlsearch
+
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
