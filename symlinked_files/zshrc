@@ -2,6 +2,10 @@
 fpath+=~/.dotfiles/zsh_plugins/pure
 autoload -U promptinit
 promptinit
+
+# Customise pure prompt
+PURE_PROMPT_SYMBOL="%%"
+
 prompt pure
 
 # Autocomplete support
