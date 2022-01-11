@@ -6,7 +6,7 @@ fi
 autoload -U compinit
 compinit
 
-source ~/.dotfiles/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 if [ -f ~/.interactive ]; then
   source ~/.interactive
