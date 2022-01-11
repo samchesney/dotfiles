@@ -11,3 +11,7 @@ source ~/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ -f ~/.interactive ]; then
   source ~/.interactive
 fi
+
+# Syntax highlighting support
+# Note this must be sourced at the end of .zshrc
+source ~/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
