@@ -1,3 +1,9 @@
+# Pure prompt support
+fpath+=~/.dotfiles/zsh_plugins/pure
+autoload -U promptinit
+promptinit
+prompt pure
+
 # Autocomplete support
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
