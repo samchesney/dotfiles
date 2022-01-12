@@ -5,6 +5,7 @@ promptinit
 
 # Customise pure prompt
 PURE_PROMPT_SYMBOL="%%"
+PURE_GIT_PULL=0
 zstyle :prompt:pure:git:stash show yes
 
 prompt pure
