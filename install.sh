@@ -37,7 +37,7 @@ done
 echo "${#file_list[@]} files to symlink found"
 
 # Create backup directory for any existing versions of dotfiles
-backup_dir=~/old_dotfiles
+backup_dir=~/dotfiles_backup-`date +%s`
 backup_dir_created=false
 backup_count=0
 echo "Creating backup directory $backup_dir"
