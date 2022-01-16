@@ -29,8 +29,11 @@ fi
 ln -si $PWD/ ~/.dotfiles
 
 # Build list of files managed by this dotfiles repo
-cd ./symlinked_files/
-file_list=(*)
+dir_list=(symlinked_files*/)
+file_list=()
+for dir in ${dir_list[@]}; do
+  file_list+=($dir*)
+done
 echo "${#file_list[@]} files to symlink found"
 
 # Create backup directory for any existing versions of dotfiles
@@ -47,19 +50,20 @@ fi
 for file in ${file_list[@]}; do
 
   # Check for any exitisting versions of these files
-  echo -e "\nChecking for existing version of .$file"
-  find -f ~/.$file > /dev/null 2>&1
+  filename=.$(basename $file)
+  echo -e "\nChecking for existing version of $filename"
+  find -f ~/$filename > /dev/null 2>&1
   if [ $? -eq 0 ]; then # Check the exit code of find
     echo "  Found existing vesion... moving to $backup_dir"
-    mv ~/.$file $backup_dir
+    mv ~/$filename $backup_dir
     backup_count=$((backup_count+1))
   else
     echo "  No existing version found"
   fi
 
   # Create symlink to the managed version
-  echo "Creating symlink for .$file"
-  ln -s $PWD/$file ~/.$file
+  echo "Creating symlink for $file"
+  ln -s $PWD/$file ~/$filename
 
 done
 
