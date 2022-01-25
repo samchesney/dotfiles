@@ -1,5 +1,5 @@
 # Pure prompt support
-fpath+=~/.dotfiles/zsh_plugins/pure
+fpath+=$HOME/.dotfiles/zsh_plugins/pure
 autoload -U promptinit
 promptinit
 
@@ -18,12 +18,12 @@ fi
 autoload -U compinit
 compinit
 
-source ~/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-if [ -f ~/.interactive ]; then
-  source ~/.interactive
+if [ -f $HOME/.interactive ]; then
+  source $HOME/.interactive
 fi
 
 # Syntax highlighting support
 # Note this must be sourced at the end of .zshrc
-source ~/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Git user credentials are not checked in
-if [ ! -f ~/.gitconfig_untracked ]; then
+if [ ! -f $HOME/.gitconfig_untracked ]; then
   echo "Enter full name for Git global config:"
   read git_user_name
   echo "Enter email address for Git global config:"
@@ -13,14 +13,14 @@ if [ ! -f ~/.gitconfig_untracked ]; then
 #\tsigningkey = \n\
 #[commit]\n\
 #\tgpgSign = true\n" \
-"$git_user_name" "$git_user_email" >> ~/.gitconfig_untracked
+"$git_user_name" "$git_user_email" >> $HOME/.gitconfig_untracked
 else
-  printf "~/.gitconfig_untracked already exists:\n\
+  printf "$HOME/.gitconfig_untracked already exists:\n\
   Ensure at least full name and  email are set.\n"
 fi
 
 # Ensure this dotfile repo is installed in a known location
-install_link=~/.dotfiles
+install_link=$HOME/.dotfiles
 if [ -L $install_link ]; then
   # Delete any existing symlink to avoid the risk of following it when
   # updating to the current location.
@@ -37,7 +37,7 @@ done
 echo "${#file_list[@]} files to symlink found"
 
 # Create backup directory for any existing versions of dotfiles
-backup_dir=~/dotfiles_backup-`date +%s`
+backup_dir=$HOME/dotfiles_backup-`date +%s`
 backup_dir_created=false
 backup_count=0
 echo "Creating backup directory $backup_dir"
@@ -52,10 +52,10 @@ for file in ${file_list[@]}; do
   # Check for any exitisting versions of these files
   filename=.$(basename $file)
   echo -e "\nChecking for existing version of $filename"
-  find -f ~/$filename > /dev/null 2>&1
+  find -f $HOME/$filename > /dev/null 2>&1
   if [ $? -eq 0 ]; then # Check the exit code of find
     echo "  Found existing vesion... moving to $backup_dir"
-    mv ~/$filename $backup_dir
+    mv $HOME/$filename $backup_dir
     backup_count=$((backup_count+1))
   else
     echo "  No existing version found"
@@ -63,7 +63,7 @@ for file in ${file_list[@]}; do
 
   # Create symlink to the managed version
   echo "Creating symlink for $file"
-  ln -s $PWD/$file ~/$filename
+  ln -s $PWD/$file $HOME/$filename
 
 done
 

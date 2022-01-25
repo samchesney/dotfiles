@@ -17,6 +17,6 @@ alias ll='ls -lh'
 alias l='tree -L 1'
 alias dirs='dirs -v'
 
-if [ -f ~/.git_shortcuts ]; then
-  source ~/.git_shortcuts
+if [ -f $HOME/.git_shortcuts ]; then
+  source $HOME/.git_shortcuts
 fi

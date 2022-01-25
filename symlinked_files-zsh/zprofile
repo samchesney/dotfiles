@@ -1,3 +1,3 @@
-if [ -f ~/.login ]; then
-  source ~/.login
+if [ -f $HOME/.login ]; then
+  source $HOME/.login
 fi

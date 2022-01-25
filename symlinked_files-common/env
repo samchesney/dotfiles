@@ -5,8 +5,8 @@ if [ $(command -v /usr/local/Cellar/modules/3.2.10/Modules/bin/modulecmd) ]; the
 fi
 
 # Phabricator
-if [ -d ~/.phabricator ]; then
-  export PATH=~/.phabricator/arcanist/bin:$PATH
+if [ -d $HOME/.phabricator ]; then
+  export PATH=$HOME/.phabricator/arcanist/bin:$PATH
 fi
 
 # Python
@@ -16,6 +16,6 @@ fi
 export PIPENV_VENV_IN_PROJECT=1
 
 # Work tools (untracked)
-if [ -f ~/.work_tools ]; then
-  source ~/.work_tools
+if [ -f $HOME/.work_tools ]; then
+  source $HOME/.work_tools
 fi

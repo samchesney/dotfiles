@@ -3,8 +3,8 @@
 if type brew 2&>/dev/null; then
   source "$(brew --prefix)/etc/bash_completion"
 fi
-if [ -d ~/.phabricator ]; then
-  source ~/.phabricator/arcanist/resources/shell/bash-completion
+if [ -d $HOME/.phabricator ]; then
+  source $HOME/.phabricator/arcanist/resources/shell/bash-completion
 fi
 
 # Prompt configuration
@@ -23,6 +23,6 @@ if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   fi
 fi
 
-if [ -f ~/.interactive ]; then
-  source ~/.interactive
+if [ -f $HOME/.interactive ]; then
+  source $HOME/.interactive
 fi

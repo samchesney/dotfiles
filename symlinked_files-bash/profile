@@ -1,7 +1,7 @@
-if [ -f ~/.env ]; then
-  source ~/.env
+if [ -f $HOME/.env ]; then
+  source $HOME/.env
 fi
 
-if [ -f ~/.login ]; then
-  source ~/.login
+if [ -f $HOME/.login ]; then
+  source $HOME/.login
 fi
