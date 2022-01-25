@@ -20,13 +20,13 @@ else
 fi
 
 # Ensure this dotfile repo is installed in a known location
-echo "Creating symlink for $PWD directory"
-if [ -L ~/.dotfiles ]; then
+install_link=~/.dotfiles
+if [ -L $install_link ]; then
   # Delete any existing symlink to avoid the risk of following it when
   # updating to the current location.
-  rm ~/.dotfiles
+  rm $install_link
 fi
-ln -si $PWD/ ~/.dotfiles
+ln -si $PWD/ $install_link
 
 # Build list of files managed by this dotfiles repo
 dir_list=(symlinked_files*/)
