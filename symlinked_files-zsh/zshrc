@@ -1,6 +1,6 @@
 # Pure prompt support
 fpath+=$HOME/.dotfiles/zsh_plugins/pure
-autoload -U promptinit
+autoload -Uz promptinit
 promptinit
 
 # Customise pure prompt
@@ -15,7 +15,7 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
