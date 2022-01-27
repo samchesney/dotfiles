@@ -20,6 +20,10 @@ if [[ ${fpath[(i)$brew_fpath]} -ge ${#fpath} ]] ; then
   fpath=($brew_fpath $fpath)
 fi
 
+if [ -d $HOME/.zfunc ]; then
+  fpath+=$HOME/.zfunc
+fi
+
 autoload -Uz compinit
 compinit
 
