@@ -6,7 +6,7 @@ fi
 
 # Phabricator
 if [ -d $HOME/.phabricator ]; then
-  export PATH=$HOME/.phabricator/arcanist/bin:$PATH
+  export PATH="$HOME/.phabricator/arcanist/bin:$PATH"
 fi
 
 # Python
