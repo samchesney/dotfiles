@@ -11,8 +11,11 @@ zstyle :prompt:pure:git:stash show yes
 prompt pure
 
 # Autocomplete support
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+# Usually Brew installs completions in a location which macOS adds to the fpath
+# by default so only add it when necessary
+brew_fpath=$(brew --prefix)/share/zsh/site-functions
+if [[ ${fpath[(i)$brew_fpath]} -ge ${#fpath} ]] ; then
+  fpath=($brew_fpath $fpath)
 fi
 
 autoload -Uz compinit
