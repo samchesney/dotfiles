@@ -19,6 +19,7 @@ brew_fpath=$(brew --prefix)/share/zsh/site-functions
 if [[ ${fpath[(i)$brew_fpath]} -ge ${#fpath} ]] ; then
   fpath=($brew_fpath $fpath)
 fi
+unset brew_fpath
 
 if [ -d $HOME/.zfunc ]; then
   fpath+=$HOME/.zfunc
