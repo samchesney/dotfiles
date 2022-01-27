@@ -1,14 +1,16 @@
 # Pure prompt support
-fpath+=$HOME/.dotfiles/zsh_plugins/pure
-autoload -Uz promptinit
-promptinit
+if [ -d $HOME/.dotfiles/zsh_plugins/pure ]; then
+  fpath+=$HOME/.dotfiles/zsh_plugins/pure
+  autoload -Uz promptinit
+  promptinit
 
-# Customise pure prompt
-PURE_PROMPT_SYMBOL="%%"
-PURE_GIT_PULL=0
-zstyle :prompt:pure:git:stash show yes
+  # Customise pure prompt
+  PURE_PROMPT_SYMBOL="%%"
+  PURE_GIT_PULL=0
+  zstyle :prompt:pure:git:stash show yes
 
-prompt pure
+  prompt pure
+fi
 
 # Autocomplete support
 # Usually Brew installs completions in a location which macOS adds to the fpath
@@ -21,7 +23,9 @@ fi
 autoload -Uz compinit
 compinit
 
-source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 if [ -f $HOME/.interactive ]; then
   source $HOME/.interactive
@@ -29,4 +33,6 @@ fi
 
 # Syntax highlighting support
 # Note this must be sourced at the end of .zshrc
-source $HOME/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f $HOME/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source $HOME/.dotfiles/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
