@@ -6,17 +6,17 @@ if [ ! -f "$HOME"/.gitconfig_untracked ]; then
   read -r git_user_name
   echo "Enter email address for Git global config:"
   read -r git_user_email
-  printf \
+  echo -e -n \
 "[user]\n\
-\tname = %s\n\
-\temail = %s\n\
+\tname = $git_user_name\n\
+\temail = $git_user_email\n\
 #\tsigningkey = \n\
 #[commit]\n\
 #\tgpgSign = true\n" \
-"$git_user_name" "$git_user_email" >> "$HOME"/.gitconfig_untracked
+>> "$HOME"/.gitconfig_untracked
 else
-  printf "$HOME/.gitconfig_untracked already exists:\n\
-  Ensure at least full name and  email are set.\n"
+  echo -e "$HOME/.gitconfig_untracked already exists:\n\
+  Ensure at least full name and  email are set."
 fi
 
 # Ensure this dotfile repo is installed in a known location
