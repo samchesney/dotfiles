@@ -32,7 +32,7 @@ ln -si "$PWD"/ "$install_link"
 # Build list of files managed by this dotfiles repo
 dir_list=(symlinked_files*/)
 file_list=()
-for dir in ${dir_list[@]}; do
+for dir in "${dir_list[@]}"; do
   file_list+=("$dir"*)
 done
 echo "${#file_list[@]} files to symlink found"
