@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Git user credentials are not checked in
 if [ ! -f "$HOME"/.gitconfig_untracked ]; then
