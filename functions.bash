@@ -14,7 +14,7 @@ function update_machine_specific_dotfiles() {
 }
 
 function generate_untracked_gitconfig() {
-  extra_file="$machine_specific_dir/.gitconfig_extra"
+  extra_file="$machine_specific_dir/gitconfig_extra"
   untracked_file="$HOME/.gitconfig_untracked"
   if [ -f "$extra_file" ]; then
     echo "Not generating untracked gitconfig as $extra_file has been cloned."
