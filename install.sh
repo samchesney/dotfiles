@@ -42,8 +42,7 @@ backup_dir=$HOME/dotfiles_backup-$(date +%s)
 backup_dir_created=false
 backup_count=0
 echo "Creating backup directory $backup_dir"
-mkdir "$backup_dir"
-if [ $? -eq 0 ]; then
+if mkdir "$backup_dir"; then
   backup_dir_created=true
 fi
 
@@ -53,8 +52,7 @@ for file in "${file_list[@]}"; do
   # Check for any exitisting versions of these files
   filename=.$(basename "$file")
   echo -e "\nChecking for existing version of $filename"
-  find -f "$HOME"/"$filename" > /dev/null 2>&1
-  if [ $? -eq 0 ]; then # Check the exit code of find
+  if find -f "$HOME"/"$filename" > /dev/null 2>&1; then
     echo "  Found existing vesion... moving to $backup_dir"
     mv "$HOME"/"$filename" "$backup_dir"
     backup_count=$((backup_count+1))
