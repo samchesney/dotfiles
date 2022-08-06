@@ -1,2 +1,7 @@
 # Authentication
 ssh-add -A > /dev/null 2>&1
+
+# Machine specific dotfile
+if [ -f $HOME/.login_extra ]; then
+  source $HOME/.login_extra
+fi

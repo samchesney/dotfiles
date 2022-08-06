@@ -20,3 +20,8 @@ alias dirs='dirs -v'
 if [ -f $HOME/.git_shortcuts ]; then
   source $HOME/.git_shortcuts
 fi
+
+# Machine specific dotfile
+if [ -f $HOME/.interactive_extra ]; then
+  source $HOME/.interactive_extra
+fi

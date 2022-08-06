@@ -1,6 +1,24 @@
+machine_specific_dir="symlinked_files-machine_specific"
+function clone_machine_specific_dotfiles() {
+  echo "Clone machine specific dotfile repo? Y/n"
+  read -r use_extra_dotfiles
+  if [ -z "$use_extra_dotfiles" ] || [ "$use_extra_dotfiles" = "y" ]; then
+    echo "Enter URL of machine specific dotfile repo:"
+    read -r extra_dotfiles_repo_url
+    git clone --shallow-submodules "$extra_dotfiles_repo_url" "$machine_specific_dir"
+  fi
+}
+
+function update_machine_specific_dotfiles() {
+  git -C "$machine_specific_dir" pull --recurse-submodules
+}
+
 function generate_untracked_gitconfig() {
+  extra_file="$machine_specific_dir/.gitconfig_extra"
   untracked_file="$HOME/.gitconfig_untracked"
-  if [ ! -f "$untracked_file" ]; then
+  if [ -f "$extra_file" ]; then
+    echo "Not generating untracked gitconfig as $extra_file has been cloned."
+  elif [ ! -f "$untracked_file" ]; then
     echo "Enter full name for Git global config:"
     read -r git_user_name
     echo "Enter email address for Git global config:"

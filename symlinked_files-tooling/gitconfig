@@ -8,4 +8,5 @@
 [push]
 	default = simple
 [include]
+	path = ~/.gitconfig_extra
 	path = ~/.gitconfig_untracked

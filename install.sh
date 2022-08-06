@@ -7,6 +7,8 @@ fi
 
 source functions.bash
 
+clone_machine_specific_dotfiles
+
 generate_untracked_gitconfig
 
 create_project_symlink

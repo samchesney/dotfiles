@@ -20,7 +20,7 @@ if [ -d $HOME/.cargo ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-# Work tools (untracked)
-if [ -f $HOME/.work_tools ]; then
-  source $HOME/.work_tools
+# Machine specific dotfile
+if [ -f $HOME/.env_extra ]; then
+  source $HOME/.env_extra
 fi

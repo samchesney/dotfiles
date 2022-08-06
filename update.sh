@@ -9,6 +9,8 @@ source functions.bash
 
 git pull
 
+update_machine_specific_dotfiles
+
 manage_dotfile_symlinks
 
 manage_submodules
