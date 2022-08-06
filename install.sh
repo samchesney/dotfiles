@@ -21,6 +21,7 @@ fi
 
 # Ensure this dotfile repo is installed in a known location
 install_link=$HOME/.dotfiles
+echo -e "\nCreating symlink for $PWD directory"
 if [ -L $install_link ]; then
   # Delete any existing symlink to avoid the risk of following it when
   # updating to the current location.
