@@ -7,9 +7,7 @@ fi
 
 source functions.bash
 
-generate_untracked_gitconfig
-
-create_project_symlink
+git pull
 
 manage_dotfile_symlinks
 
