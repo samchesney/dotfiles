@@ -1,5 +1,6 @@
 function generate_untracked_gitconfig() {
-  if [ ! -f "$HOME"/.gitconfig_untracked ]; then
+  untracked_file="$HOME/.gitconfig_untracked"
+  if [ ! -f "$untracked_file" ]; then
     echo "Enter full name for Git global config:"
     read -r git_user_name
     echo "Enter email address for Git global config:"
@@ -11,9 +12,9 @@ function generate_untracked_gitconfig() {
 #\tsigningkey = \n\
 #[commit]\n\
 #\tgpgSign = true\n" \
->> "$HOME"/.gitconfig_untracked
+>> "$untracked_file"
   else
-    echo -e "$HOME/.gitconfig_untracked already exists:\n\
+    echo -e "$untracked_file already exists:\n\
     Ensure at least full name and  email are set."
   fi
 }
