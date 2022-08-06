@@ -3,9 +3,9 @@
 # Git user credentials are not checked in
 if [ ! -f $HOME/.gitconfig_untracked ]; then
   echo "Enter full name for Git global config:"
-  read git_user_name
+  read -r git_user_name
   echo "Enter email address for Git global config:"
-  read git_user_email
+  read -r git_user_email
   printf \
 "[user]\n\
 \tname = %s\n\
