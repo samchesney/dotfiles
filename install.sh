@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+source_directory=$(readlink -f "$(dirname "$0")")
+if [ "$PWD" != "$source_directory" ]; then
+  pushd "$source_directory" || exit
+fi
+
 # Git user credentials are not checked in
 if [ ! -f "$HOME"/.gitconfig_untracked ]; then
   echo "Enter full name for Git global config:"
