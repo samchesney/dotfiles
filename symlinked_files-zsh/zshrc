@@ -15,11 +15,13 @@ fi
 # Autocomplete support
 # Usually Brew installs completions in a location which macOS adds to the fpath
 # by default so only add it when necessary
-brew_fpath=$(brew --prefix)/share/zsh/site-functions
-if [[ ${fpath[(i)$brew_fpath]} -ge ${#fpath} ]] ; then
-  fpath=($brew_fpath $fpath)
+if [ $(command -v brew) ]; then
+  brew_fpath=$(brew --prefix)/share/zsh/site-functions
+  if [[ ${fpath[(i)$brew_fpath]} -ge ${#fpath} ]] ; then
+    fpath=($brew_fpath $fpath)
+  fi
+  unset brew_fpath
 fi
-unset brew_fpath
 
 if [ -d $HOME/.zfunc ]; then
   fpath+=$HOME/.zfunc
