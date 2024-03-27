@@ -30,6 +30,17 @@ fi
 autoload -Uz compinit
 compinit
 
+# Set up fzf key bindings and fuzzy completion
+if [ $(command -v fzf) ]; then
+  eval "$(fzf --zsh)"
+
+  # Note fzf-tab needs to be loaded after compinit, but before plugins which
+  # will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
+  if [ -f $HOME/.dotfiles/zsh_plugins/fzf-tab/fzf-tab.plugin.zsh ]; then
+  source $HOME/.dotfiles/zsh_plugins/fzf-tab/fzf-tab.plugin.zsh
+  fi
+fi
+
 if [ -f $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi

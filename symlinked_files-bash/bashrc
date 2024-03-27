@@ -7,6 +7,11 @@ if [ -d $HOME/.phabricator ]; then
   source $HOME/.phabricator/arcanist/resources/shell/bash-completion
 fi
 
+# Set up fzf key bindings and fuzzy completion
+if [ $(command -v fzf) ]; then
+  eval "$(fzf --bash)"
+fi
+
 # Prompt configuration
 if [ -f "/usr/local/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR="/usr/local/opt/bash-git-prompt/share"

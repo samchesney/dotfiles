@@ -7,3 +7,6 @@
 [submodule "zsh_plugins/pure"]
 	path = zsh_plugins/pure
 	url = https://github.com/sindresorhus/pure.git
+[submodule "fzf-tab"]
+	path = zsh_plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab.git
