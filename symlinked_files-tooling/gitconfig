@@ -11,3 +11,5 @@
 [include]
 	path = ~/.gitconfig_extra
 	path = ~/.gitconfig_untracked
+[init]
+	defaultBranch = main
