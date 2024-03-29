@@ -45,6 +45,10 @@ if [ -f $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
   source $HOME/.dotfiles/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
+if [ -f $HOME/.zshrc_extra ]; then
+  source $HOME/.zshrc_extra
+fi
+
 if [ -f $HOME/.interactive ]; then
   source $HOME/.interactive
 fi
